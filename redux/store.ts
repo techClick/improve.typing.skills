@@ -1,4 +1,6 @@
 import { configureStore, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import textBuilderReducer from '../components/TextBuilder/redux';
+import timeBuilderReducer from '../components/TimeBuilder/redux';
 
 export interface AppState {
   loggedIn: boolean,
@@ -27,6 +29,8 @@ export const store = configureStore({
   }),
   reducer: {
     app: counterSlice.reducer,
+    textBuilder: textBuilderReducer,
+    timeBuilder: timeBuilderReducer,
   },
 });
 
