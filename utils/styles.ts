@@ -10,6 +10,7 @@ export const greyColor = '#c9c9c9';
 export const orange = Color('#DC4D18').darken(0.05).toString();
 export const textColor = Color('white').darken(0.2).toString();
 export const textColor2 = Color('white').darken(0.45).toString();
+export const textColor3 = Color('#AFB5CA').darken(0.6).toString();
 
 export const Container = styled.div`
   width: 90%;

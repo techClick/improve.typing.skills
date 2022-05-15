@@ -2,10 +2,10 @@ import Color from 'color';
 import styled from 'styled-components';
 import { textColor } from '../../../utils/styles';
 
-const orange = Color('#DC4D18').darken(0.05).toString();
+const green = Color('#28BEA5').darken(0.25).toString();
 export const Button = styled.div<any>`
   color: ${Color(textColor).lighten(0.1).toString()};
-  background: ${orange};
+  background: ${green};
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box; 
   box-sizing: border-box;
@@ -19,10 +19,10 @@ export const Button = styled.div<any>`
   display: flex;
   opacity: ${(props) => !props.isClickable && '0.2'};
   cursor: ${(props) => props.isClickable ? 'pointer' : 'not-allowed'};
-  border: 2px solid ${Color(orange).lighten(0.3).toString()};
+  border: 2px solid ${Color(green).lighten(0.3).toString()};
   &:hover {
-    background: ${(props) => props.isClickable && Color(orange).lighten(0.55).toString()};
-    color: ${(props) => props.isClickable && Color(orange).darken(0.35).toString()};
+    background: ${(props) => props.isClickable && Color(green).lighten(0.55).toString()};
+    color: ${(props) => props.isClickable && Color(green).darken(0.35).toString()};
   }
 `;
 

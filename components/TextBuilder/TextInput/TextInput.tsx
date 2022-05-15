@@ -11,14 +11,18 @@ const TextInput = function TextInput() {
 
   return (
     <S.Container>
-      <S.TextArea
-        isError={isError}
-        value={text}
-        onChange={(e: any) => {
-          dispatch(setIsError(false));
-          dispatch(setText(e.target.value));
-        }}
-      />
+      <S.TextAreaDiv>
+        <S.Apostrophe>&quot;</S.Apostrophe>
+        <S.TextArea
+          spellCheck={false}
+          isError={isError}
+          value={text}
+          onChange={(e: any) => {
+            dispatch(setIsError(false));
+            dispatch(setText(e.target.value));
+          }}
+        />
+      </S.TextAreaDiv>
     </S.Container>
   );
 };

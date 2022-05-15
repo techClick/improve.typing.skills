@@ -12,7 +12,7 @@ export interface ChallengeTimeState {
 
 const initialState: ChallengeTimeState = {
   isError: false,
-  timings: [1, 2, 5, null],
+  timings: [1, 2, 5, null, 0],
   selectedTiming: null,
   showPopup: {},
 };
@@ -22,9 +22,9 @@ export const counterSlice = createSlice({
   initialState,
   reducers: {
     loadFromStorage: (state) => {
-      state.timings = JSON.parse(getStorageItem('timings') || JSON.stringify([1, 2, 5, null]));
-      state.selectedTiming = Number(getStorageItem('selectedTiming')) >= 0
-        ? Number(getStorageItem('selectedTiming')) : null;
+      state.timings = JSON.parse(getStorageItem('timings') || JSON.stringify([1, 2, 5, null, 0]));
+      state.selectedTiming = isNaN(+(getStorageItem('selectedTiming') || 'null'))
+        ? null : +(getStorageItem('selectedTiming') || 'null');
     },
     setIsError: (state, action: PayloadAction<boolean>) => {
       state.isError = action.payload;
@@ -48,7 +48,7 @@ export const counterSlice = createSlice({
 });
 
 export const {
-  loadFromStorage, setIsError, setSelectedTiming, setCustomTime, setShowPopup
+  loadFromStorage, setIsError, setSelectedTiming, setCustomTime, setShowPopup,
 } = counterSlice.actions;
 
 export const selectIsError = (state: RootState) => state.timeBuilder.isError;

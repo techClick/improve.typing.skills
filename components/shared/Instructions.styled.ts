@@ -1,6 +1,5 @@
 import Color from 'color';
 import styled from 'styled-components';
-import { baseColor, textColor } from '../../utils/styles';
 
 export const Container = styled.div`
   max-height: 250px;

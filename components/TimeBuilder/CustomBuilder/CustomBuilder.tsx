@@ -32,7 +32,7 @@ const CustomBuilder = function CustomBuilder() {
         <S.SaveButton
           isClickable={Boolean(Number(time))}
           onClick={() => {
-            dispatch(setCustomTime(Number(time)));
+            dispatch(setCustomTime(Math.ceil(Number(time))));
             dispatch(setSelectedTiming(3));
             dispatch(setShowPopup({}));
           }}

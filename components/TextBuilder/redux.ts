@@ -17,7 +17,8 @@ export const counterSlice = createSlice({
   initialState,
   reducers: {
     loadFromStorage: (state) => {
-      state.text = getStorageItem('text') || 'The rain in Spain falls usually in the plain';
+      state.text = getStorageItem('text')
+        || 'The rain in Spain falls mainly on the plain. The rain is good for the soil.';
     },
     setIsError: (state, action: PayloadAction<boolean>) => {
       state.isError = action.payload;

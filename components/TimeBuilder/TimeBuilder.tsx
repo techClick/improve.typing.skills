@@ -10,11 +10,17 @@ import BackButton from '../BackButton/BackButton';
 import StartButton from './StartButton/StartButton';
 import { useAppSelector } from '../../redux/hooks';
 import { selectShowPopup, setShowPopup } from './redux';
+import { selectText } from '../TextBuilder/redux';
+import { selectHasSynced } from '../../redux/store';
 
 const TimeBuilder = function TimeBuilder() {
   const showPopup = useAppSelector(selectShowPopup);
+  const hasSyncedWithStorage = useAppSelector(selectHasSynced);
   const router = useRouter();
   const dispatch = useDispatch();
+  const text = useAppSelector(selectText);
+
+  if (hasSyncedWithStorage && !text) router.replace('/textbuilder');
 
   const instructions = (
     <>

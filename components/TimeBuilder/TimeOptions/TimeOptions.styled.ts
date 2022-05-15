@@ -18,7 +18,7 @@ export const TimeButton = styled.div<any>`
   background: ${(props) => props.isSelected ? 'white' : textColor2}};
   color: ${baseColor};
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 600;
   margin-right: ${(props) => props.isLast ? '0px' : '15px'};
   cursor: pointer;
   &:hover {
@@ -37,4 +37,8 @@ export const CustomTime = styled.div<any>`
   font-size: 14px;
   font-weight: 700;
   color: ${baseColor};
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 90px;
 `;

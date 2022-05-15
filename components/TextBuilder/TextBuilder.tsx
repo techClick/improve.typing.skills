@@ -11,7 +11,7 @@ const TextBuilder = function TextBuilder() {
   const isError = useAppSelector(selectIsError);
   const instructions = (
     <>
-      <b>IMPROVE YOUR TYPING SKILLS</b>
+      <S.Header>IMPROVE YOUR TYPING SKILLS</S.Header>
       <S.Header2>WITH A SIMPLE CHALLENGE</S.Header2>
       Memorize the sentence then press NEXT!
       <S.SmallText>The challenge is to retype this exact sentence.</S.SmallText>

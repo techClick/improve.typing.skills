@@ -41,6 +41,7 @@ const TimeOptions = function TimeOptions() {
       {
         timeOptions.map((option: any, i: number) => (
           <S.TimeButton
+            key={`timeoption_${i}`}
             isLast={i === 3}
             isSelected={i === selectedTiming}
             onClick={() => {

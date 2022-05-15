@@ -2,6 +2,11 @@ import Color from 'color';
 import styled from 'styled-components';
 import { textColor2 } from '../../utils/styles';
 
+export const Header = styled.div`
+  font-size: 26px;
+  font-weight: 700;
+`;
+
 export const Header2 = styled.div`
   font-size: 16px;
   color: ${textColor2};
