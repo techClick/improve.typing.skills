@@ -9,13 +9,16 @@ export interface InputState {
 
 const initialState: InputState = {
   isError: false,
-  text: getStorageItem('text') || 'The rain in Spain falls usually in the plain',
+  text: '',
 };
 
 export const counterSlice = createSlice({
   name: 'textBuilder',
   initialState,
   reducers: {
+    loadFromStorage: (state) => {
+      state.text = getStorageItem('text') || 'The rain in Spain falls usually in the plain';
+    },
     setIsError: (state, action: PayloadAction<boolean>) => {
       state.isError = action.payload;
     },
@@ -26,7 +29,7 @@ export const counterSlice = createSlice({
   },
 });
 
-export const { setIsError, setText } = counterSlice.actions;
+export const { loadFromStorage, setIsError, setText } = counterSlice.actions;
 
 export const selectIsError = (state: RootState) => state.textBuilder.isError;
 export const selectText = (state: RootState) => state.textBuilder.text;

@@ -3,6 +3,7 @@ import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import { Provider } from 'react-redux';
 import { store } from '../redux/store';
+import StorageSync from '../components/StorageSync/StorageSync';
 
 if (typeof window !== 'undefined') {
   // localStorage.clear();
@@ -11,7 +12,9 @@ if (typeof window !== 'undefined') {
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store}>
-      <Component {...pageProps} />
+      <StorageSync>
+        <Component {...pageProps} />
+      </StorageSync>
     </Provider>
   );
 }

@@ -13,8 +13,8 @@ export const TextArea = styled.textarea<any>`
   resize: none;
   font-size: 25px;
   box-sizing: border-box;
-  padding-left: 20px;
-  padding-top: 15px;
+  padding-left: 15px;
+  padding-top: 10px;
   font-family: Poppins;
   color: ${baseColor};
   background: ${Color(textColor).lighten(0.2).toString()};

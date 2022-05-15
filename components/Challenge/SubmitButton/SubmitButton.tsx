@@ -1,11 +1,12 @@
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useRouter } from 'next/router';
 import React from 'react';
-import * as S from './BackButton.styled';
+import * as S from './SubmitButton.styled';
 
-const BackButton = function BackButton() {
+const StartButton = function StartButton() {
   const router = useRouter();
+
   return (
     <S.Button
       onClick={() => {
@@ -14,12 +15,12 @@ const BackButton = function BackButton() {
     >
       <S.IconContainer>
         <S.Icon>
-          <FontAwesomeIcon icon={faArrowLeft} />
+          <FontAwesomeIcon icon={faCheck} />
         </S.Icon>
       </S.IconContainer>
-      BACK
+      SUBMIT
     </S.Button>
   );
 };
 
-export default BackButton;
+export default StartButton;

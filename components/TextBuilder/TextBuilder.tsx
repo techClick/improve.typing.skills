@@ -18,6 +18,7 @@ const TextBuilder = function TextBuilder() {
       <S.SmallText2>NOTE: You can copy/paste your own text.</S.SmallText2>
     </>
   );
+
   return (
     <Container>
       <Instructions instructions={instructions} />

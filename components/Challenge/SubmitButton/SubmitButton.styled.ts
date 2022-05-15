@@ -1,7 +1,8 @@
 import Color from 'color';
 import styled from 'styled-components';
-import { orange, textColor } from '../../../utils/styles';
+import { textColor } from '../../../utils/styles';
 
+const orange = Color('#DC4D18').darken(0.05).toString();
 export const Button = styled.div<any>`
   color: ${Color(textColor).lighten(0.1).toString()};
   background: ${orange};

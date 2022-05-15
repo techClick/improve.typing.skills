@@ -1,12 +1,21 @@
 import Head from 'next/head';
 import React from 'react';
-import { Container } from '../../utils/styles';
+import { useDispatch } from 'react-redux';
+import { useRouter } from 'next/router';
+import { Background, Container } from '../../utils/styles';
 import Instructions from '../shared/Instructions';
 import TimeOptions from './TimeOptions/TimeOptions';
 import * as S from './TimeBuilder.styled';
-import BackButton from './BackButton/BackButton';
+import BackButton from '../BackButton/BackButton';
+import StartButton from './StartButton/StartButton';
+import { useAppSelector } from '../../redux/hooks';
+import { selectShowPopup, setShowPopup } from './redux';
 
 const TimeBuilder = function TimeBuilder() {
+  const showPopup = useAppSelector(selectShowPopup);
+  const router = useRouter();
+  const dispatch = useDispatch();
+
   const instructions = (
     <>
       <S.Header>SET YOUR TIME LIMIT</S.Header>
@@ -16,16 +25,31 @@ const TimeBuilder = function TimeBuilder() {
     </>
   );
   return (
-    <Container>
-      <Head>
-        <title>Improve Typing Skills</title>
-      </Head>
-      <Instructions instructions={instructions} />
-      <TimeOptions />
-      <S.ButtonDiv>
-        <BackButton />
-      </S.ButtonDiv>
-    </Container>
+    <>
+      {showPopup.component
+        && (
+          <>
+            <Background onClick={() => {
+              if (showPopup.exitOnBgClick) {
+                dispatch(setShowPopup({}));
+              }
+            }}
+            />
+            {showPopup.component}
+          </>
+        )}
+      <Container>
+        <Head>
+          <title>Improve Typing Skills</title>
+        </Head>
+        <Instructions instructions={instructions} />
+        <TimeOptions />
+        <S.ButtonDiv>
+          <BackButton action={() => router.push('/')} />
+          <StartButton />
+        </S.ButtonDiv>
+      </Container>
+    </>
   );
 };
 
