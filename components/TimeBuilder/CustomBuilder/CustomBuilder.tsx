@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useAppSelector } from '../../../redux/hooks';
-import EscapeButton from '../../EscapeButton/EscapeButton';
+import EscapeButton from '../EscapeButton/EscapeButton';
 import { selectTimings, setCustomTime, setSelectedTiming, setShowPopup } from '../redux';
 import * as S from './CustomBuilder.styled';
 
