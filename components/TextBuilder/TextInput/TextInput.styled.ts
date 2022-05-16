@@ -1,6 +1,6 @@
 import Color from 'color';
 import styled from 'styled-components';
-import { textColor, textColor3 } from '../../../utils/styles';
+import { orange, textColor, textColor3 } from '../../../utils/styles';
 
 export const Container = styled.div`
   width: 100%;
@@ -28,19 +28,27 @@ export const Apostrophe = styled.div`
   pointer-events: none;
 `;
 
+const orange2 = Color(orange).lighten(0.2).toString();
 export const TextArea = styled.textarea<any>`
   width: 100%;
   height: 100%;
   resize: none;
-  font-size: 22px;
+  font-size: 20px;
   box-sizing: border-box;
   padding: 9px 15px;
   padding-left: 152px;
   font-family: Poppins;
   font-weight: 500;
-  line-height: 1.375;
+  line-height: 1.39;
   color: ${textColor3};
   background: ${Color(textColor).lighten(0.2).toString()};
   border: ${(props) => props.isError && `2px solid ${Color('red').lighten(0.25).toString()}`};
   border-radius: 1px;
+  &:focus {
+    border: 2px solid ${orange2};
+    border-left: 4px solid ${orange2};
+    border-right: 4px solid ${orange2};
+    outline: 2px solid ${orange2};
+    border-radius: 3px;
+  }
 `;

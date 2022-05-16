@@ -3,19 +3,20 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import { useAppSelector } from '../../redux/hooks';
 import { selectHasSynced } from '../../redux/store';
-import { Container } from '../../utils/styles';
+import { Background, Container } from '../../utils/styles';
 import BackButton from '../BackButton/BackButton';
 import Instructions from '../shared/Instructions';
 import AnswerInput from './AnswerInput/AnswerInput';
 import * as S from './Challenge.styled';
-import { selectIsShowResult } from './redux';
+import { selectIsShowResult, selectShowPopup } from './redux';
 import SubmitButton from './SubmitButton/SubmitButton';
 import Timer from './Timer/Timer';
 
 const Challenge = function Challenge() {
-  const router = useRouter();
+  const showPopup = useAppSelector(selectShowPopup);
   const hasSyncedWithStorage = useAppSelector(selectHasSynced);
   const isShowResult = useAppSelector(selectIsShowResult);
+  const router = useRouter();
 
   if (hasSyncedWithStorage && !isShowResult) {
     router.replace('/timebuilder');
@@ -31,17 +32,26 @@ const Challenge = function Challenge() {
     </>
   );
   return (
-    <Container>
-      <Head>
-        <title>Improve Typing Skills</title>
-      </Head>
-      <Instructions instructions={instructions} />
-      <AnswerInput />
-      <S.ButtonDiv>
-        <BackButton action={() => router.push('/timebuilder')} />
-        <SubmitButton />
-      </S.ButtonDiv>
-    </Container>
+    <>
+      {showPopup.component
+        && (
+          <>
+            <Background />
+            {showPopup.component}
+          </>
+        )}
+      <Container>
+        <Head>
+          <title>Improve Typing Skills</title>
+        </Head>
+        <Instructions instructions={instructions} />
+        <AnswerInput />
+        <S.ButtonDiv>
+          <BackButton action={() => router.push('/timebuilder')} />
+          <SubmitButton />
+        </S.ButtonDiv>
+      </Container>
+    </>
   );
 };
 

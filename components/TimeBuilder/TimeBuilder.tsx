@@ -35,12 +35,7 @@ const TimeBuilder = function TimeBuilder() {
       {showPopup.component
         && (
           <>
-            <Background onClick={() => {
-              if (showPopup.exitOnBgClick) {
-                dispatch(setShowPopup({}));
-              }
-            }}
-            />
+            <Background onClick={() => dispatch(setShowPopup({}))} />
             {showPopup.component}
           </>
         )}

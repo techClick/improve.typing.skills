@@ -14,7 +14,8 @@ const NextButton = function NextButton() {
   return (
     <S.Button
       onClick={() => {
-        if (!text) {
+        const allWords = text.match(/[\w\d]+/gi) as string[];
+        if (!text || !allWords) {
           dispatch(setIsError(true));
           return;
         }

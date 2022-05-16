@@ -2,12 +2,12 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../redux/store';
 import { getStorageItem, setStorageItem } from '../../utils/utils';
 
-export interface InputState {
+export interface ChallengeTextState {
   isError: boolean,
   text: string,
 }
 
-const initialState: InputState = {
+const initialState: ChallengeTextState = {
   isError: false,
   text: '',
 };
@@ -18,7 +18,8 @@ export const counterSlice = createSlice({
   reducers: {
     loadFromStorage: (state) => {
       state.text = getStorageItem('text')
-        || 'The rain in Spain falls mainly on the plain. The rain is good for the soil.';
+        || 'The rain in Spain falls mainly on the plain. The rain is good for the soil.'
+        + ' The rain is good for the Plants.';
     },
     setIsError: (state, action: PayloadAction<boolean>) => {
       state.isError = action.payload;

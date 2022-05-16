@@ -30,5 +30,5 @@ export const Background = styled.div<any>`
   bottom: 0;
   left: 0;
   background: black;
-  opacity: 0.5;
+  opacity: 0.85;
 `;

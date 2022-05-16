@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useAppSelector } from '../../../redux/hooks';
 import { selectHasSynced } from '../../../redux/store';
-import { selectMinsLeft, selectSecsLeft, setMinsLeft, setSecsLeft } from '../redux';
+import { selectMinsLeft, selectSecsLeft, setMinsLeft, setSecsLeft, setShowPopup, setTimer } from '../redux';
+import ScoreBoard from '../ScoreBoard/ScoreBoard';
 import * as S from './Timer.styled';
 
 const Timer = () => {
@@ -12,19 +13,23 @@ const Timer = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const myTimeout = setTimeout(() => {
-      if (secsLeft > 0) {
-        dispatch(setSecsLeft(secsLeft - 1));
-      }
-      if (secsLeft === 0) {
-        if (minsLeft === 0) {
-          clearTimeout(myTimeout);
-        } else {
-          dispatch(setMinsLeft(minsLeft - 1));
-          dispatch(setSecsLeft(59));
+    if (hasSyncedWithStorage) {
+      dispatch(setTimer(setTimeout(() => {
+        if (secsLeft > 0) {
+          dispatch(setSecsLeft(secsLeft - 1));
         }
-      }
-    }, 1000);
+        if (secsLeft === 0) {
+          if (minsLeft === 0) {
+            dispatch(setShowPopup({
+              component: <ScoreBoard />,
+            }));
+          } else {
+            dispatch(setMinsLeft(minsLeft - 1));
+            dispatch(setSecsLeft(59));
+          }
+        }
+      }, 1000)));
+    }
   });
 
   return (

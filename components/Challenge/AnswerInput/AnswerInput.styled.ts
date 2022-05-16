@@ -1,12 +1,13 @@
 import Color from 'color';
 import styled from 'styled-components';
-import { textColor, textColor3 } from '../../../utils/styles';
+import { orange, textColor, textColor3 } from '../../../utils/styles';
 
 export const Container = styled.div`
   width: 100%;
   height: 250px;
 `;
 
+const orange2 = Color(orange).lighten(0.2).toString();
 export const TextArea = styled.textarea<any>`
   width: 100%;
   height: 100%;
@@ -20,4 +21,11 @@ export const TextArea = styled.textarea<any>`
   color: ${textColor3};
   background: ${Color(textColor).lighten(0.2).toString()};
   border: ${(props) => props.isError && `2px solid ${Color('red').lighten(0.25).toString()}`};
+  &:focus {
+    border: 2px solid ${orange2};
+    border-left: 4px solid ${orange2};
+    border-right: 4px solid ${orange2};
+    outline: 2px solid ${orange2};
+    border-radius: 3px;
+  }
 `;

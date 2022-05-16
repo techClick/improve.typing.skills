@@ -1,6 +1,9 @@
-import React from 'react';
+import { useRouter } from 'next/router';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { useAppSelector } from '../../redux/hooks';
 import { Container } from '../../utils/styles';
+import { setIsShowResult } from '../Challenge/redux';
 import Instructions from '../shared/Instructions';
 import NextButton from './NextButton/NextButton';
 import { selectIsError } from './redux';
@@ -9,22 +12,30 @@ import TextInput from './TextInput/TextInput';
 
 const TextBuilder = function TextBuilder() {
   const isError = useAppSelector(selectIsError);
+  const dispatch = useDispatch();
+  const { refresh } = useRouter().query;
   const instructions = (
     <>
       <S.Header>IMPROVE YOUR TYPING SKILLS</S.Header>
       <S.Header2>WITH A SIMPLE CHALLENGE</S.Header2>
       Memorize the sentence then press NEXT!
-      <S.SmallText>The challenge is to retype this exact sentence.</S.SmallText>
+      <S.SmallText>The challenge is to type this exact sentence.</S.SmallText>
       <S.SmallText2>NOTE: You can copy/paste your own text.</S.SmallText2>
     </>
   );
+
+  useEffect(() => {
+    if (refresh) {
+      dispatch(setIsShowResult(false));
+    }
+  });
 
   return (
     <Container>
       <Instructions instructions={instructions} />
       <TextInput />
       {
-        isError && <S.Required>The text to memorize is required</S.Required>
+        isError && <S.Required>Words to memorize are required</S.Required>
       }
       <S.ButtonDiv>
         <NextButton />
