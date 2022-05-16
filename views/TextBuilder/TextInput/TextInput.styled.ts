@@ -23,7 +23,7 @@ export const Apostrophe = styled.div`
   font-family: Lucida Handwriting;
   font-weight: 600;
   color: ${textColor3};
-  opacity: 0.225;
+  opacity: 0.25;
   font-size: 380px;
   pointer-events: none;
 `;
@@ -39,7 +39,7 @@ export const TextArea = styled.textarea<any>`
   padding-left: 152px;
   font-family: Poppins;
   font-weight: 500;
-  line-height: 1.39;
+  line-height: 1.395;
   color: ${textColor3};
   background: ${Color(textColor).lighten(0.2).toString()};
   border: ${(props) => props.isError && `2px solid ${Color('red').lighten(0.25).toString()}`};

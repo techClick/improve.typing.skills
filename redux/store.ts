@@ -1,7 +1,7 @@
 import { configureStore, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import textBuilderReducer from '../components/TextBuilder/redux';
-import timeBuilderReducer from '../components/TimeBuilder/redux';
-import challengeReducer from '../components/Challenge/redux';
+import textBuilderReducer from '../views/TextBuilder/redux';
+import timeBuilderReducer from '../views/TimeBuilder/redux';
+import challengeReducer from '../views/Challenge/redux';
 
 export interface AppState {
   hasSyncedWithStorage: boolean,

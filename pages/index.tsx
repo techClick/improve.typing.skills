@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import type { NextPage } from 'next';
 import * as S from '../styles/Index.styled';
-import TextBuilder from '../components/TextBuilder/TextBuilder';
+import TextBuilder from '../views/TextBuilder/TextBuilder';
 
 const Home: NextPage = () => {
   return (

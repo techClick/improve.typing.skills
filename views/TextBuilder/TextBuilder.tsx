@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { useAppSelector } from '../../redux/hooks';
 import { Container } from '../../utils/styles';
 import { setIsShowResult } from '../Challenge/redux';
-import Instructions from '../shared/Instructions';
+import Instructions from '../../components/Instructions/Instructions';
 import NextButton from './NextButton/NextButton';
 import { selectIsError } from './redux';
 import * as S from './TextBuilder.styled';

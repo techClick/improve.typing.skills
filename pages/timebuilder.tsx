@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import type { NextPage } from 'next';
 import * as S from '../styles/Index.styled';
-import TimeBuilder from '../components/TimeBuilder/TimeBuilder';
+import TimeBuilder from '../views/TimeBuilder/TimeBuilder';
 
 const TimeBuilder_Home: NextPage = () => {
   return (
