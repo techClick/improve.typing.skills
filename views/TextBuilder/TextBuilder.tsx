@@ -6,12 +6,12 @@ import { Container } from '../../utils/styles';
 import { setIsShowResult } from '../Challenge/redux';
 import Instructions from '../../components/Instructions/Instructions';
 import NextButton from './NextButton/NextButton';
-import { selectIsError } from './redux';
+import { selectIsInputError } from './redux';
 import * as S from './TextBuilder.styled';
 import TextInput from './TextInput/TextInput';
 
 const TextBuilder = function TextBuilder() {
-  const isError = useAppSelector(selectIsError);
+  const isInputError = useAppSelector(selectIsInputError);
   const dispatch = useDispatch();
   const { refresh } = useRouter().query;
   const instructions = (
@@ -35,7 +35,7 @@ const TextBuilder = function TextBuilder() {
       <Instructions instructions={instructions} />
       <TextInput />
       {
-        isError && <S.Required>Words to memorize are required</S.Required>
+        isInputError && <S.Required>Words to memorize are required</S.Required>
       }
       <S.ButtonDiv>
         <NextButton />

@@ -4,7 +4,7 @@ import { ShowPopup } from '../../types/types';
 import { getStorageItem, setStorageItem } from '../../utils/utils';
 
 export interface ChallengeState {
-  isError: boolean,
+  isInputError: boolean,
   answer: string,
   timeout: any,
   minsLeft: number,
@@ -14,7 +14,7 @@ export interface ChallengeState {
 }
 
 const initialState: ChallengeState = {
-  isError: false,
+  isInputError: false,
   answer: '',
   timeout: null,
   minsLeft: 0,
@@ -34,8 +34,8 @@ export const counterSlice = createSlice({
       state.minsLeft = Number(getStorageItem('minsLeft') || 0);
       state.secsLeft = Number(getStorageItem('secsLeft') || 0);
     },
-    setIsError: (state, action: PayloadAction<boolean>) => {
-      state.isError = action.payload;
+    setIsInputError: (state, action: PayloadAction<boolean>) => {
+      state.isInputError = action.payload;
     },
     setAnswer: (state, action: PayloadAction<string>) => {
       state.answer = action.payload;
@@ -66,11 +66,11 @@ export const counterSlice = createSlice({
 });
 
 export const {
-  loadFromStorage, setIsError, setAnswer, setMinsLeft, setSecsLeft, setIsShowResult, setShowPopup,
+  loadFromStorage, setIsInputError, setAnswer, setMinsLeft, setSecsLeft, setIsShowResult, setShowPopup,
   setTimer, cancelTimeout,
 } = counterSlice.actions;
 
-export const selectIsError = (state: RootState) => state.challenge.isError;
+export const selectIsInputError = (state: RootState) => state.challenge.isInputError;
 export const selectAnswer = (state: RootState) => state.challenge.answer;
 export const selectMinsLeft = (state: RootState) => state.challenge.minsLeft;
 export const selectSecsLeft = (state: RootState) => state.challenge.secsLeft;

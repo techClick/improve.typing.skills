@@ -1,11 +1,11 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useAppSelector } from '../../../redux/hooks';
-import { selectIsError, selectText, setIsError, setText } from '../redux';
+import { selectIsInputError, selectText, setIsInputError, setText } from '../redux';
 import * as S from './TextInput.styled';
 
 const TextInput = function TextInput() {
-  const isError = useAppSelector(selectIsError);
+  const isInputError = useAppSelector(selectIsInputError);
   const text = useAppSelector(selectText);
   const dispatch = useDispatch();
 
@@ -15,10 +15,10 @@ const TextInput = function TextInput() {
         <S.Apostrophe>&quot;</S.Apostrophe>
         <S.TextArea
           spellCheck={false}
-          isError={isError}
+          isInputError={isInputError}
           value={text}
           onChange={(e: any) => {
-            dispatch(setIsError(false));
+            dispatch(setIsInputError(false));
             dispatch(setText(e.target.value));
           }}
         />

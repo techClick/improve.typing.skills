@@ -1,11 +1,11 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useAppSelector } from '../../../redux/hooks';
-import { selectAnswer, selectIsError, setAnswer, setIsError } from '../redux';
+import { selectAnswer, selectIsInputError, setAnswer, setIsInputError } from '../redux';
 import * as S from './AnswerInput.styled';
 
 const AnswerInput = function AnswerInput() {
-  const isError = useAppSelector(selectIsError);
+  const isInputError = useAppSelector(selectIsInputError);
   const answer = useAppSelector(selectAnswer);
   const dispatch = useDispatch();
 
@@ -13,10 +13,10 @@ const AnswerInput = function AnswerInput() {
     <S.Container>
       <S.TextArea
         spellCheck={false}
-        isError={isError}
+        isInputError={isInputError}
         value={answer}
         onChange={(e: any) => {
-          dispatch(setIsError(false));
+          dispatch(setIsInputError(false));
           dispatch(setAnswer(e.target.value));
         }}
       />

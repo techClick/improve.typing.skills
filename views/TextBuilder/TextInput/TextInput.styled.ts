@@ -42,7 +42,7 @@ export const TextArea = styled.textarea<any>`
   line-height: 1.395;
   color: ${textColor3};
   background: ${Color(textColor).lighten(0.2).toString()};
-  border: ${(props) => props.isError && `2px solid ${Color('red').lighten(0.25).toString()}`};
+  border: ${(props) => props.isInputError && `2px solid ${Color('red').lighten(0.25).toString()}`};
   border-radius: 1px;
   &:focus {
     border: 2px solid ${orange2};

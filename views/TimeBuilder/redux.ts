@@ -4,14 +4,14 @@ import { ShowPopup } from '../../types/types';
 import { getStorageItem, setStorageItem } from '../../utils/utils';
 
 export interface ChallengeTimeState {
-  isError: boolean,
+  isInputError: boolean,
   timings: Array<null | number>,
   selectedTiming: number | null,
   showPopup: ShowPopup,
 }
 
 const initialState: ChallengeTimeState = {
-  isError: false,
+  isInputError: false,
   timings: [1, 2, 5, null, 0],
   selectedTiming: null,
   showPopup: {},
@@ -26,8 +26,8 @@ export const counterSlice = createSlice({
       state.selectedTiming = isNaN(+(getStorageItem('selectedTiming') || 'null'))
         ? null : +(getStorageItem('selectedTiming') || 'null');
     },
-    setIsError: (state, action: PayloadAction<boolean>) => {
-      state.isError = action.payload;
+    setIsInputError: (state, action: PayloadAction<boolean>) => {
+      state.isInputError = action.payload;
     },
     setSelectedTiming: (state, action: PayloadAction<number | null>) => {
       state.selectedTiming = action.payload;
@@ -48,10 +48,10 @@ export const counterSlice = createSlice({
 });
 
 export const {
-  loadFromStorage, setIsError, setSelectedTiming, setCustomTime, setShowPopup,
+  loadFromStorage, setIsInputError, setSelectedTiming, setCustomTime, setShowPopup,
 } = counterSlice.actions;
 
-export const selectIsError = (state: RootState) => state.timeBuilder.isError;
+export const selectIsInputError = (state: RootState) => state.timeBuilder.isInputError;
 export const selectSelectedTiming = (state: RootState) => state.timeBuilder.selectedTiming;
 export const selectTimings = (state: RootState) => state.timeBuilder.timings;
 export const selectShowPopup = (state: RootState) => state.timeBuilder.showPopup;

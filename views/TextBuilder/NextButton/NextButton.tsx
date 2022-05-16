@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useAppSelector } from '../../../redux/hooks';
-import { selectText, setIsError } from '../redux';
+import { selectText, setIsInputError } from '../redux';
 import * as S from './NextButton.styled';
 
 const NextButton = function NextButton() {
@@ -16,7 +16,7 @@ const NextButton = function NextButton() {
       onClick={() => {
         const allWords = text.match(/[\w\d]+/gi) as string[];
         if (!text || !allWords) {
-          dispatch(setIsError(true));
+          dispatch(setIsInputError(true));
           return;
         }
         router.push('/timebuilder');
