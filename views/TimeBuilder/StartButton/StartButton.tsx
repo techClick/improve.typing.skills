@@ -17,6 +17,7 @@ const StartButton = function StartButton() {
 
   return (
     <S.Button
+      data-testid="startButton"
       isClickable={selectedTiming === 0 || Boolean(selectedTiming)}
       onClick={() => {
         if (selectedTiming === 0 || Boolean(selectedTiming)) {

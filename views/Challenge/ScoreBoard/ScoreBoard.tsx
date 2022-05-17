@@ -23,7 +23,7 @@ const ScoreBoard = function ScoreBoard() {
   const minsUsed = secsLeft === 0 ? totalMins - minsLeft : (totalMins - 1) - minsLeft;
   const secsUsed = secsLeft === 0 ? 0 : 60 - secsLeft;
 
-  const allWords = text.match(/[\w\d]+/gi) as string[];
+  const allWords = text ? text.match(/[\w\d]+/gi) as string[] : [];
   const failedWords = [...allWords];
   const wordsInAnswer = answer.match(/[\w\d]+/gi);
   wordsInAnswer?.map((word) => {
@@ -41,9 +41,9 @@ const ScoreBoard = function ScoreBoard() {
       <S.Header>RESULT</S.Header>
       <S.Header2>ACCURACY</S.Header2>
       <S.Score id="scrollContainer">
-        {correctWords}
+        <span data-testid="correctWords">{correctWords}</span>
         <S.Slash>/</S.Slash>
-        {allWords.length}
+        <span data-testid="total">{allWords.length}</span>
       </S.Score>
       <S.Label>
         You wrote

@@ -34,7 +34,7 @@ export const Header2 = styled.div`
 
 export const Score = styled.div`
   margin-top: 0px;
-  font-size: 42px;
+  font-size: 40px;
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -45,7 +45,7 @@ export const Score = styled.div`
 `;
 
 export const Slash = styled.div`
-  font-size: 42px;
+  font-size: 28px;
   font-weight: 700;
   margin-right: 6px;
   margin-left: 3px;

@@ -40,3 +40,5 @@ export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch;
 
 export const selectHasSynced = (state: RootState) => state.app.hasSyncedWithStorage;
+
+export default counterSlice.reducer;

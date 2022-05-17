@@ -10,7 +10,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 color: ${textColor};
-font-size: 20px;
+font-size: 17px;
 font-weight: 700;
 font-family: Poppins;
 `;

@@ -66,8 +66,8 @@ export const counterSlice = createSlice({
 });
 
 export const {
-  loadFromStorage, setIsInputError, setAnswer, setMinsLeft, setSecsLeft, setIsShowResult, setShowPopup,
-  setTimer, cancelTimeout,
+  loadFromStorage, setIsInputError, setAnswer, setMinsLeft, setSecsLeft, setIsShowResult,
+  setShowPopup, setTimer, cancelTimeout,
 } = counterSlice.actions;
 
 export const selectIsInputError = (state: RootState) => state.challenge.isInputError;
