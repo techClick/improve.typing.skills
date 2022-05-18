@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, cleanup, screen, fireEvent } from '@testing-library/react';
+import { render, cleanup, screen, fireEvent, act } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { setHasSyncedWithStorage, store } from '../redux/store';
 import Challenge from '../views/Challenge/Challenge';
@@ -18,11 +18,13 @@ describe('integration tests', () => {
   }));
   describe('challenge set up is correct', () => {
     test('challenge will start', async () => {
-      render(
-        <Provider store={store}>
-          <TimeBuilder />
-        </Provider>,
-      );
+      await act(async () => {
+        render(
+          <Provider store={store}>
+            <TimeBuilder />
+          </Provider>,
+        );
+      });
       store.dispatch(setSelectedTiming(0));
       await new Promise((r) => setTimeout(r, 50));
       const startButton: any = screen.queryByTestId('startButton');
@@ -31,11 +33,13 @@ describe('integration tests', () => {
       expect(store.getState().challenge.isShowResult).toBe(true);
     });
     test('challenge timer is set up correctly 1', async () => {
-      render(
-        <Provider store={store}>
-          <TimeBuilder />
-        </Provider>,
-      );
+      await act(async () => {
+        render(
+          <Provider store={store}>
+            <TimeBuilder />
+          </Provider>,
+        );
+      });
       store.dispatch(setSelectedTiming(1));
       await new Promise((r) => setTimeout(r, 50));
       const startButton: any = screen.queryByTestId('startButton');
@@ -44,11 +48,13 @@ describe('integration tests', () => {
       expect(store.getState().challenge.minsLeft).toBe(2);
     });
     test('challenge timer is set up correctly 2', async () => {
-      render(
-        <Provider store={store}>
-          <TimeBuilder />
-        </Provider>,
-      );
+      await act(async () => {
+        render(
+          <Provider store={store}>
+            <TimeBuilder />
+          </Provider>,
+        );
+      });
       store.dispatch(setSelectedTiming(2));
       await new Promise((r) => setTimeout(r, 50));
       const startButton: any = screen.queryByTestId('startButton');
@@ -66,11 +72,13 @@ describe('integration tests', () => {
       store.dispatch(setAnswer('The rain in Spain falls mainly on the'));
       store.dispatch(setIsShowResult(true));
       await new Promise((r) => setTimeout(r, 50));
-      render(
-        <Provider store={store}>
-          <Challenge />
-        </Provider>,
-      );
+      await act(async () => {
+        render(
+          <Provider store={store}>
+            <Challenge />
+          </Provider>,
+        );
+      });
       await new Promise((r) => setTimeout(r, 1200));
       const correctWords = screen.queryByTestId('correctWords');
       expect(correctWords?.innerHTML).toContain('8');
@@ -83,11 +91,13 @@ describe('integration tests', () => {
       store.dispatch(setAnswer('The rain Spain falls plain.'));
       store.dispatch(setIsShowResult(true));
       await new Promise((r) => setTimeout(r, 50));
-      render(
-        <Provider store={store}>
-          <Challenge />
-        </Provider>,
-      );
+      await act(async () => {
+        render(
+          <Provider store={store}>
+            <Challenge />
+          </Provider>,
+        );
+      });
       await new Promise((r) => setTimeout(r, 1200));
       const correctWords = screen.queryByTestId('correctWords');
       expect(correctWords?.innerHTML).toContain('5');
@@ -100,11 +110,13 @@ describe('integration tests', () => {
       store.dispatch(setAnswer('The rain in spain falls mainly on the Plain.'));
       store.dispatch(setIsShowResult(true));
       await new Promise((r) => setTimeout(r, 50));
-      render(
-        <Provider store={store}>
-          <Challenge />
-        </Provider>,
-      );
+      await act(async () => {
+        render(
+          <Provider store={store}>
+            <Challenge />
+          </Provider>,
+        );
+      });
       await new Promise((r) => setTimeout(r, 1200));
       const correctWords = screen.queryByTestId('correctWords');
       expect(correctWords?.innerHTML).toContain('7');

@@ -2,7 +2,7 @@ import Head from 'next/head';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
-import { Background, Container, MainContainer } from '../../utils/styles';
+import { Background, Container, MainContainer } from '../../styles/styled';
 import Instructions from '../../components/Instructions/Instructions';
 import TimeOptions from './TimeOptions/TimeOptions';
 import * as S from './TimeBuilder.styled';

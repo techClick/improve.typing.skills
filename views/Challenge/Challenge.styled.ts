@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { textColor2 } from '../../utils/styles';
+import { textColor2 } from '../../styles/styled';
 
 const bigRes = '405px';
 export const Header = styled.div`

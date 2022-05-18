@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { textColor, textColor2 } from '../../utils/styles';
+import { textColor, textColor2 } from '../../styles/styled';
 
 const bigRes = '503px';
 const minRes = '386px';

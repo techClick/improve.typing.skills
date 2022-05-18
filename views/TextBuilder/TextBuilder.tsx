@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useAppSelector } from '../../redux/hooks';
-import { Container, MainContainer } from '../../utils/styles';
+import { Container, MainContainer } from '../../styles/styled';
 import { setIsShowResult } from '../Challenge/redux';
 import Instructions from '../../components/Instructions/Instructions';
 import NextButton from './NextButton/NextButton';

@@ -1,6 +1,6 @@
 import Color from 'color';
 import styled from 'styled-components';
-import { textColor } from '../../../utils/styles';
+import { textColor } from '../../../styles/styled';
 
 export const Container = styled.div`
   position: absolute;

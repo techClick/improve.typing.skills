@@ -1,6 +1,6 @@
 import Color from 'color';
 import styled from 'styled-components';
-import { baseColor, blueColor, orange, textColor, textColor2 } from '../../../utils/styles';
+import { baseColor, blueColor, orange, textColor, textColor2 } from '../../../styles/styled';
 
 export const Container = styled.div`
   background: ${Color(baseColor).lighten(0.6).toString()};

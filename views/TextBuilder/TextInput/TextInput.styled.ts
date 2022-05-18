@@ -1,6 +1,6 @@
 import Color from 'color';
 import styled from 'styled-components';
-import { orange, textColor, textColor3 } from '../../../utils/styles';
+import { orange, textColor, textColor3 } from '../../../styles/styled';
 
 const bigRes = '427px';
 const minRes = '381px';

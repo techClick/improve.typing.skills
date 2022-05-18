@@ -1,6 +1,6 @@
 import Color from 'color';
 import styled from 'styled-components';
-import { textColor } from '../../../utils/styles';
+import { textColor } from '../../../styles/styled';
 
 const green = Color('#28BEA5').darken(0.25).toString();
 export const Button = styled.div<any>`

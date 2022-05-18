@@ -1,6 +1,6 @@
 import Color from 'color';
 import styled from 'styled-components';
-import { baseColor, textColor, textColor2 } from '../../../utils/styles';
+import { baseColor, textColor, textColor2 } from '../../../styles/styled';
 
 const bigRes = '486px';
 export const Container = styled.div<any>`

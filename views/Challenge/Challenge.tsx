@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import { useAppSelector } from '../../redux/hooks';
 import { selectHasSynced } from '../../redux/store';
-import { Background, Container, MainContainer } from '../../utils/styles';
+import { Background, Container, MainContainer } from '../../styles/styled';
 import BackButton from '../../components/BackButton/BackButton';
 import Instructions from '../../components/Instructions/Instructions';
 import AnswerInput from './AnswerInput/AnswerInput';
