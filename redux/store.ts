@@ -15,13 +15,13 @@ export const counterSlice = createSlice({
   name: 'app',
   initialState,
   reducers: {
-    setHasSynced: (state, action: PayloadAction<boolean>) => {
+    setHasSyncedWithStorage: (state, action: PayloadAction<boolean>) => {
       state.hasSyncedWithStorage = action.payload;
     },
   },
 });
 
-export const { setHasSynced } = counterSlice.actions;
+export const { setHasSyncedWithStorage } = counterSlice.actions;
 
 export const store = configureStore({
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({

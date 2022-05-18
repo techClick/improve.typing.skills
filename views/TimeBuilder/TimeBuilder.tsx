@@ -2,7 +2,7 @@ import Head from 'next/head';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
-import { Background, Container } from '../../utils/styles';
+import { Background, Container, MainContainer } from '../../utils/styles';
 import Instructions from '../../components/Instructions/Instructions';
 import TimeOptions from './TimeOptions/TimeOptions';
 import * as S from './TimeBuilder.styled';
@@ -26,7 +26,7 @@ const TimeBuilder = function TimeBuilder() {
     <>
       <S.Header>SET YOUR TIME LIMIT</S.Header>
       <S.Header2>This is the final step.</S.Header2>
-      Pick a time limit then press START!
+      <S.Header3>Pick a time limit then press START!</S.Header3>
       <S.SmallText>NOTE: This will be the time limit for the challenge.</S.SmallText>
     </>
   );
@@ -39,17 +39,19 @@ const TimeBuilder = function TimeBuilder() {
             {showPopup.component}
           </>
         )}
-      <Container>
-        <Head>
-          <title>Improve Typing Skills</title>
-        </Head>
-        <Instructions instructions={instructions} />
-        <TimeOptions />
-        <S.ButtonDiv>
-          <BackButton action={() => router.push('/')} />
-          <StartButton />
-        </S.ButtonDiv>
-      </Container>
+      <MainContainer isTimeBuilder>
+        <Container>
+          <Head>
+            <title>Improve Typing Skills</title>
+          </Head>
+          <Instructions instructions={instructions} />
+          <TimeOptions />
+          <S.ButtonDiv>
+            <BackButton action={() => router.push('/')} />
+            <StartButton />
+          </S.ButtonDiv>
+        </Container>
+      </MainContainer>
     </>
   );
 };

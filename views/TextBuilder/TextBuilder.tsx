@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useAppSelector } from '../../redux/hooks';
-import { Container } from '../../utils/styles';
+import { Container, MainContainer } from '../../utils/styles';
 import { setIsShowResult } from '../Challenge/redux';
 import Instructions from '../../components/Instructions/Instructions';
 import NextButton from './NextButton/NextButton';
@@ -18,9 +18,9 @@ const TextBuilder = function TextBuilder() {
     <>
       <S.Header>IMPROVE YOUR TYPING SKILLS</S.Header>
       <S.Header2>WITH A SIMPLE CHALLENGE</S.Header2>
-      Memorize the sentence then press NEXT!
+      <S.Header3>Memorize the sentence then press NEXT!</S.Header3>
       <S.SmallText>The challenge is to type this exact sentence.</S.SmallText>
-      <S.SmallText2>NOTE: You can copy/paste your own text.</S.SmallText2>
+      <S.SmallText2>NOTE: You can copy/paste your own text here.</S.SmallText2>
     </>
   );
 
@@ -31,16 +31,18 @@ const TextBuilder = function TextBuilder() {
   });
 
   return (
-    <Container>
-      <Instructions instructions={instructions} />
-      <TextInput />
-      {
-        isInputError && <S.Required>Words to memorize are required</S.Required>
-      }
-      <S.ButtonDiv>
-        <NextButton />
-      </S.ButtonDiv>
-    </Container>
+    <MainContainer>
+      <Container>
+        <Instructions instructions={instructions} />
+        <TextInput />
+        {
+          isInputError && <S.Required>Words to memorize are required</S.Required>
+        }
+        <S.ButtonDiv>
+          <NextButton />
+        </S.ButtonDiv>
+      </Container>
+    </MainContainer>
   );
 };
 

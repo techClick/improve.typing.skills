@@ -2,10 +2,12 @@ import Color from 'color';
 import styled from 'styled-components';
 import { orange, textColor, textColor3 } from '../../../utils/styles';
 
+const bigRes = '427px';
+const minRes = '381px';
 export const Container = styled.div`
   width: 100%;
-  flex: 1;
-  max-height: 250px;
+  height: 250px;
+  background: white;
 `;
 
 export const TextAreaDiv = styled.div`
@@ -26,6 +28,14 @@ export const Apostrophe = styled.div`
   opacity: 0.25;
   font-size: 380px;
   pointer-events: none;
+  @media(max-width: ${bigRes}){
+    font-size: 230px;
+    left: -27px;
+    top: -20px;
+  }
+  @media(max-width: ${minRes}){
+    display: none;
+  }
 `;
 
 const orange2 = Color(orange).lighten(0.2).toString();
@@ -50,5 +60,11 @@ export const TextArea = styled.textarea<any>`
     border-right: 4px solid ${orange2};
     outline: 2px solid ${orange2};
     border-radius: 3px;
+  }
+  @media(max-width: ${bigRes}){
+    padding-left: 97px;
+  }
+  @media(max-width: ${minRes}){
+    padding-left: 13px;
   }
 `;

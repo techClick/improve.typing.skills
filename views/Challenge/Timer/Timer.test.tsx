@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, cleanup } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import { setHasSynced, store } from '../../../redux/store';
+import { setHasSyncedWithStorage, store } from '../../../redux/store';
 import Timer from './Timer';
 import { setIsShowResult, setMinsLeft, setSecsLeft } from '../redux';
 
@@ -16,7 +16,7 @@ describe('unit tests: Timer', () => {
     );
   });
   test('timer works correctly 1', async () => {
-    store.dispatch(setHasSynced(true));
+    store.dispatch(setHasSyncedWithStorage(true));
     store.dispatch(setMinsLeft(2));
     store.dispatch(setIsShowResult(true));
     await new Promise((r) => setTimeout(r, 50));
@@ -29,7 +29,7 @@ describe('unit tests: Timer', () => {
     expect(store.getState().challenge.minsLeft).toBe(1);
   });
   test('timer works correctly 2', async () => {
-    store.dispatch(setHasSynced(true));
+    store.dispatch(setHasSyncedWithStorage(true));
     store.dispatch(setSecsLeft(5));
     store.dispatch(setIsShowResult(true));
     await new Promise((r) => setTimeout(r, 50));

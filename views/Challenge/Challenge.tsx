@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import { useAppSelector } from '../../redux/hooks';
 import { selectHasSynced } from '../../redux/store';
-import { Background, Container } from '../../utils/styles';
+import { Background, Container, MainContainer } from '../../utils/styles';
 import BackButton from '../../components/BackButton/BackButton';
 import Instructions from '../../components/Instructions/Instructions';
 import AnswerInput from './AnswerInput/AnswerInput';
@@ -26,7 +26,7 @@ const Challenge = function Challenge() {
   const instructions = (
     <>
       <S.Header>CHALLENGE HAS STARTED</S.Header>
-      <S.Header2>Type the memorized text below.</S.Header2>
+      <S.Header2>Type in the memorized text below.</S.Header2>
       <S.Header3>Time left:</S.Header3>
       <S.TimeLeft><Timer /></S.TimeLeft>
     </>
@@ -40,17 +40,19 @@ const Challenge = function Challenge() {
             {showPopup.component}
           </>
         )}
-      <Container>
-        <Head>
-          <title>Improve Typing Skills</title>
-        </Head>
-        <Instructions instructions={instructions} />
-        <AnswerInput />
-        <S.ButtonDiv>
-          <BackButton action={() => router.push('/timebuilder')} />
-          <SubmitButton />
-        </S.ButtonDiv>
-      </Container>
+      <MainContainer isAnimation1>
+        <Container>
+          <Head>
+            <title>Improve Typing Skills</title>
+          </Head>
+          <Instructions instructions={instructions} />
+          <AnswerInput />
+          <S.ButtonDiv>
+            <BackButton action={() => router.push('/timebuilder')} />
+            <SubmitButton />
+          </S.ButtonDiv>
+        </Container>
+      </MainContainer>
     </>
   );
 };

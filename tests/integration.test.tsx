@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, cleanup, screen, fireEvent } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import { setHasSynced, store } from '../redux/store';
+import { setHasSyncedWithStorage, store } from '../redux/store';
 import Challenge from '../views/Challenge/Challenge';
 import { setAnswer, setIsShowResult, setMinsLeft, setSecsLeft } from '../views/Challenge/redux';
 import { setText } from '../views/TextBuilder/redux';
@@ -61,7 +61,7 @@ describe('integration tests', () => {
     test('accuracy is correct 1', async () => {
       store.dispatch(setMinsLeft(0));
       store.dispatch(setSecsLeft(0));
-      store.dispatch(setHasSynced(true));
+      store.dispatch(setHasSyncedWithStorage(true));
       store.dispatch(setText('The rain in Spain falls mainly on the plain'));
       store.dispatch(setAnswer('The rain in Spain falls mainly on the'));
       store.dispatch(setIsShowResult(true));
@@ -78,7 +78,7 @@ describe('integration tests', () => {
       expect(total?.innerHTML).toContain('9');
     });
     test('accuracy is correct 2', async () => {
-      store.dispatch(setHasSynced(true));
+      store.dispatch(setHasSyncedWithStorage(true));
       store.dispatch(setText('The rain in Spain falls mainly on the plain.'));
       store.dispatch(setAnswer('The rain Spain falls plain.'));
       store.dispatch(setIsShowResult(true));
@@ -95,7 +95,7 @@ describe('integration tests', () => {
       expect(total?.innerHTML).toContain('9');
     });
     test('accuracy is correct 3 - case sensitive', async () => {
-      store.dispatch(setHasSynced(true));
+      store.dispatch(setHasSyncedWithStorage(true));
       store.dispatch(setText('The rain in Spain falls mainly on the plain.'));
       store.dispatch(setAnswer('The rain in spain falls mainly on the Plain.'));
       store.dispatch(setIsShowResult(true));

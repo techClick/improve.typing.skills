@@ -1,8 +1,12 @@
 import styled from 'styled-components';
 import { textColor2 } from '../../utils/styles';
 
+const bigRes = '405px';
 export const Header = styled.div`
   font-weight: 700;
+  @media(max-width: ${bigRes}){
+    font-size: 17px;
+  }
 `;
 
 export const Header2 = styled.div`
@@ -11,6 +15,9 @@ export const Header2 = styled.div`
   color: ${textColor2};
   margin-top: -2px;
   margin-bottom: 30px;
+  @media(max-width: ${bigRes}){
+    font-size: 11px;
+  }
 `;
 
 export const Header3 = styled.div`

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { baseColor, textColor } from '../utils/styles';
 
-export const Container = styled.div<any>`
+export const Container = styled.div`
   min-width: 100vw;
   height: 100vh;
   width: max-content;
@@ -11,4 +11,6 @@ export const Container = styled.div<any>`
   align-items: center;
   color: ${textColor};
   font-family: Poppins;
+  padding: 20px;
+  box-sizing: border-box;
 `;
