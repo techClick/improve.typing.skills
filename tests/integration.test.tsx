@@ -124,4 +124,20 @@ describe('integration tests', () => {
       expect(total?.innerHTML).toContain('9');
     });
   });
+  test('results show up once time is up', async () => {
+    store.dispatch(setHasSyncedWithStorage(true));
+    store.dispatch(setMinsLeft(0));
+    store.dispatch(setSecsLeft(0));
+    store.dispatch(setIsShowResult(true));
+    await new Promise((r) => setTimeout(r, 50));
+    act(() => {
+      render(
+        <Provider store={store}>
+          <Challenge />
+        </Provider>,
+      );
+    });
+    await new Promise((r) => setTimeout(r, 1100));
+    expect(screen.getByText('ACCURACY')).toBeTruthy();
+  });
 });
