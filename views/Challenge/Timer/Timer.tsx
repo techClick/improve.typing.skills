@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useAppSelector } from '../../../redux/hooks';
 import { selectHasSynced } from '../../../redux/store';
-import { selectMinsLeft, selectSecsLeft, setMinsLeft, setSecsLeft, setShowPopup, setTimer } from '../redux';
+import { cancelTimeout, selectMinsLeft, selectSecsLeft, setMinsLeft, setSecsLeft, setShowPopup, setTimer } from '../redux';
 import ScoreBoard from '../ScoreBoard/ScoreBoard';
 import * as S from './Timer.styled';
 
@@ -16,6 +16,7 @@ const Timer = () => {
     if (hasSyncedWithStorage) {
       dispatch(setTimer(setTimeout(() => {
         if (secsLeft > 0) {
+          dispatch(cancelTimeout());
           dispatch(setSecsLeft(secsLeft - 1));
         }
         if (secsLeft === 0) {
