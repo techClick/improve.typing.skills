@@ -53,7 +53,6 @@ export const counterSlice = createSlice({
       console.log('Deployment test: DONE 7');
       state.hasCompletedChallenge = true;
       clearTimeout(state.timeout);
-      state.timeout = null;
     },
     setHasCompletedChallenge: (state, action: PayloadAction<boolean>) => {
       state.hasCompletedChallenge = action.payload;
