@@ -4,7 +4,7 @@ import { useAppSelector } from '../../../redux/hooks';
 import { selectHasSynced } from '../../../redux/store';
 import {
   selectHasCompletedChallenge, selectMinsLeft, selectSecsLeft, setMinsLeft,
-  setSecsLeft, setShowPopup, setTimer
+  setSecsLeft, setShowPopup, setTimer,
 } from '../redux';
 import ScoreBoard from '../ScoreBoard/ScoreBoard';
 import * as S from './Timer.styled';
@@ -19,8 +19,7 @@ const Timer = () => {
   useEffect(() => {
     if (hasSyncedWithStorage && !hasCompletedChallenge) {
       dispatch(setTimer(setTimeout(() => {
-        if (hasCompletedChallenge) return;
-        console.log('HAPPENED');
+        if (document.getElementById('scoreBoard')) return;
         if (secsLeft > 0) {
           dispatch(setSecsLeft(secsLeft - 1));
         }

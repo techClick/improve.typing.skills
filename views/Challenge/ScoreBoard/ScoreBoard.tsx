@@ -37,7 +37,7 @@ const ScoreBoard = function ScoreBoard() {
   }, []);
 
   return (
-    <S.Container>
+    <S.Container id="scoreBoard">
       <S.Header>RESULT</S.Header>
       <S.Header2>ACCURACY</S.Header2>
       <S.Score id="scrollContainer">
