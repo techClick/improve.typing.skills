@@ -48,10 +48,13 @@ export const counterSlice = createSlice({
       state.timeout = action.payload;
     },
     cancelTimeout: (state) => {
-      console.log('Deployment test: DONE 4');
+      console.log('Deployment test: DONE 5');
       clearTimeout(state.timeout);
       state.timeout = null;
       state.hasCompletedChallenge = true;
+    },
+    setHasCompletedChallenge: (state) => {
+      state.hasCompletedChallenge = false;
     },
     setMinsLeft: (state, action: PayloadAction<number>) => {
       state.minsLeft = action.payload;
@@ -74,7 +77,7 @@ export const counterSlice = createSlice({
 
 export const {
   loadFromStorage, setIsInputError, setAnswer, setMinsLeft, setSecsLeft, setIsShowResult,
-  setShowPopup, setTimer, cancelTimeout,
+  setShowPopup, setTimer, cancelTimeout, setHasCompletedChallenge,
 } = counterSlice.actions;
 
 export const selectIsInputError = (state: RootState) => state.challenge.isInputError;

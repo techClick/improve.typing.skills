@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { useAppSelector } from '../../redux/hooks';
 import { selectHasSynced } from '../../redux/store';
 import { Background, Container, MainContainer } from '../../styles/styled';
@@ -8,7 +9,7 @@ import BackButton from '../../components/BackButton/BackButton';
 import Instructions from '../../components/Instructions/Instructions';
 import AnswerInput from './AnswerInput/AnswerInput';
 import * as S from './Challenge.styled';
-import { selectIsShowResult, selectShowPopup } from './redux';
+import { selectIsShowResult, selectShowPopup, setHasCompletedChallenge } from './redux';
 import SubmitButton from './SubmitButton/SubmitButton';
 import Timer from './Timer/Timer';
 
@@ -17,11 +18,16 @@ const Challenge = function Challenge() {
   const hasSyncedWithStorage = useAppSelector(selectHasSynced);
   const isShowResult = useAppSelector(selectIsShowResult);
   const router = useRouter();
+  const dispatch = useDispatch();
 
   if (hasSyncedWithStorage && !isShowResult) {
     router.replace('/timebuilder');
     return null;
   }
+
+  useEffect(() => {
+    dispatch(setHasCompletedChallenge());
+  }, []);
 
   const instructions = (
     <>
