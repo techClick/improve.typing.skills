@@ -64,6 +64,7 @@ const ScoreBoard = function ScoreBoard() {
           dispatch(setSecsLeft(0));
           dispatch(setAnswer(''));
           dispatch(setShowPopup({}));
+          dispatch(setHasCompletedChallenge(false));
         }}
         >
           RETRY
@@ -73,7 +74,6 @@ const ScoreBoard = function ScoreBoard() {
             dispatch(setSelectedTiming(null));
             dispatch(setAnswer(''));
             dispatch(setShowPopup({}));
-            dispatch(setHasCompletedChallenge(false));
             router.push('/?refresh=1');
           }}
         >

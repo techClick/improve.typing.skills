@@ -16,6 +16,7 @@ const Timer = () => {
   useEffect(() => {
     if (hasSyncedWithStorage && !hasCompletedChallenge) {
       dispatch(setTimer(setTimeout(() => {
+        if (hasCompletedChallenge) return;
         if (secsLeft > 0) {
           dispatch(setSecsLeft(secsLeft - 1));
         }
