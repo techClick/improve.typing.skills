@@ -1,5 +1,5 @@
 ## Deployment
-The site is availaible on [https://resilient-gumption-9bc18f.netlify.app](https://resilient-gumption-9bc18f.netlify.app).
+The site is deployed on [https://resilient-gumption-9bc18f.netlify.app](https://resilient-gumption-9bc18f.netlify.app).
 ```
 Deployment steps.
 
