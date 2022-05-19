@@ -14,6 +14,7 @@ const Timer = () => {
 
   useEffect(() => {
     if (hasSyncedWithStorage && (minsLeft > 0 || secsLeft > 0)) {
+      console.log(secsLeft, minsLeft)
       dispatch(setTimer(setTimeout(() => {
         if (secsLeft > 0) {
           dispatch(setSecsLeft(secsLeft - 1));
@@ -30,9 +31,6 @@ const Timer = () => {
           }
         }
       }, 1000)));
-      return () => {
-        dispatch(cancelTimeout());
-      };
     }
   });
 
