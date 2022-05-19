@@ -30,6 +30,9 @@ const Timer = () => {
           }
         }
       }, 1000)));
+      return () => {
+        dispatch(cancelTimeout());
+      };
     }
   });
 

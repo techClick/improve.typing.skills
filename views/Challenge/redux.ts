@@ -42,6 +42,7 @@ export const counterSlice = createSlice({
       setStorageItem('answer', state.answer);
     },
     setTimer: (state, action: PayloadAction<any>) => {
+      // alert('RESET');
       state.timeout = action.payload;
     },
     cancelTimeout: (state) => {
