@@ -45,8 +45,9 @@ export const counterSlice = createSlice({
       state.timeout = action.payload;
     },
     cancelTimeout: (state) => {
-      alert('DONE');
+      alert('DONE 2');
       clearTimeout(state.timeout);
+      state.timeout = null;
     },
     setMinsLeft: (state, action: PayloadAction<number>) => {
       state.minsLeft = action.payload;
