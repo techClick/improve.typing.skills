@@ -16,11 +16,11 @@ const Timer = () => {
     if (hasSyncedWithStorage) {
       dispatch(setTimer(setTimeout(() => {
         if (secsLeft > 0) {
-          dispatch(cancelTimeout());
           dispatch(setSecsLeft(secsLeft - 1));
         }
         if (secsLeft === 0) {
           if (minsLeft === 0) {
+            dispatch(cancelTimeout());
             dispatch(setShowPopup({
               component: <ScoreBoard />,
             }));
