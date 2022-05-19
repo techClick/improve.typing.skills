@@ -3,7 +3,7 @@
 React + Next.js + TypeScript + Styled components + Jest + React Testing Library
 ```
 
-## Testing
+Testing
 
 1. Unit tests.
 2. Integration tests.
