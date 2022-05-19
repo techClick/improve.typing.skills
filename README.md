@@ -2,7 +2,7 @@
 They just added the requirement to deploy.
 ```
 Everything works on vscode but the deployed site has an issue: 
-javascripts canceltimeout is not working on netlify.
+javascripts cleartimeout is not working on netlify.
 i.e. The challenge timer does not stop when it hits 0 secs or when you hit 'submit'.
 I'm checking the issue to fix now. hopefully I will have time to fix it before revision
 ```
