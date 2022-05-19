@@ -46,7 +46,7 @@ export const counterSlice = createSlice({
       state.timeout = action.payload;
     },
     cancelTimeout: (state) => {
-      console.log('Deployment test: DONE 2');
+      console.log('Deployment test: DONE 3');
       clearTimeout(state.timeout);
       state.timeout = null;
     },
