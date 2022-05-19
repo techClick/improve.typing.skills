@@ -26,7 +26,7 @@ const Challenge = function Challenge() {
   }
 
   useEffect(() => {
-    dispatch(setHasCompletedChallenge());
+    dispatch(setHasCompletedChallenge(false));
   }, []);
 
   const instructions = (

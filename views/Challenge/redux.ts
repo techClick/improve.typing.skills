@@ -50,13 +50,13 @@ export const counterSlice = createSlice({
       }
     },
     cancelTimeout: (state) => {
-      console.log('Deployment test: DONE 6');
+      console.log('Deployment test: DONE 7');
       state.hasCompletedChallenge = true;
       clearTimeout(state.timeout);
       state.timeout = null;
     },
-    setHasCompletedChallenge: (state) => {
-      state.hasCompletedChallenge = false;
+    setHasCompletedChallenge: (state, action: PayloadAction<boolean>) => {
+      state.hasCompletedChallenge = action.payload;
     },
     setMinsLeft: (state, action: PayloadAction<number>) => {
       state.minsLeft = action.payload;

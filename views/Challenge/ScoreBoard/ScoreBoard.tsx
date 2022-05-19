@@ -6,7 +6,7 @@ import { selectText } from '../../TextBuilder/redux';
 import { selectSelectedTiming, selectTimings, setSelectedTiming } from '../../TimeBuilder/redux';
 import {
   cancelTimeout, selectAnswer, selectMinsLeft, selectSecsLeft, setAnswer,
-  setMinsLeft, setSecsLeft, setShowPopup,
+  setHasCompletedChallenge, setMinsLeft, setSecsLeft, setShowPopup,
 } from '../redux';
 import * as S from './ScoreBoard.styled';
 
@@ -73,6 +73,7 @@ const ScoreBoard = function ScoreBoard() {
             dispatch(setSelectedTiming(null));
             dispatch(setAnswer(''));
             dispatch(setShowPopup({}));
+            dispatch(setHasCompletedChallenge(false));
             router.push('/?refresh=1');
           }}
         >
