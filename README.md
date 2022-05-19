@@ -1,7 +1,7 @@
 ## Deployment is new
-They just added the requirement to deploy.
+They just added the requirement to deploy to the task. I would have seperated time to test deployment.
 
-Everything works on localhost:3000/VScode but the deployed site has an issue: 
+As this is new, I just tested deployment and found out everything works on localhost:3000/VScode but the deployed site has an issue: 
 ```
 Javascript's clearTimeout() is not working on Netlify(my deployment host).
 i.e. The challenge timer does not stop when it hits 0 secs or when you hit 'submit'.
