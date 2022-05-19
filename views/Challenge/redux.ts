@@ -44,14 +44,16 @@ export const counterSlice = createSlice({
       setStorageItem('answer', state.answer);
     },
     setTimer: (state, action: PayloadAction<any>) => {
-      console.log('RESET');
-      state.timeout = action.payload;
+      if (!state.hasCompletedChallenge) {
+        console.log('RESET');
+        state.timeout = action.payload;
+      }
     },
     cancelTimeout: (state) => {
-      console.log('Deployment test: DONE 5');
+      console.log('Deployment test: DONE 6');
+      state.hasCompletedChallenge = true;
       clearTimeout(state.timeout);
       state.timeout = null;
-      state.hasCompletedChallenge = true;
     },
     setHasCompletedChallenge: (state) => {
       state.hasCompletedChallenge = false;
@@ -66,7 +68,6 @@ export const counterSlice = createSlice({
     },
     setIsShowResult: (state, action: PayloadAction<boolean>) => {
       state.isShowResult = action.payload;
-      if (state.isShowResult) state.hasCompletedChallenge = false;
       setStorageItem('isShowResult', action.payload.toString());
     },
     setShowPopup: (state, action: PayloadAction<ShowPopup>) => {
