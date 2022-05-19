@@ -1,8 +1,8 @@
 ## Deployment is new
 They just added the requirement to deploy.
 ```
-Everything works on vscode but the deployed site has an issue: 
-javascripts clearTimeout() is not working on Netlify(My deployment host).
+Everything works on localhost:3000/VScode but the deployed site has an issue: 
+javascripts clearTimeout() is not working on Netlify(my deployment host).
 i.e. The challenge timer does not stop when it hits 0 secs or when you hit 'submit'.
 
 I'm checking the issue to fix now. Hopefully I will have time to fix it before revision.
