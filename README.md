@@ -1,5 +1,6 @@
 ## Deployment is new
-They just added the requirement to deploy to the task. I would have seperated time to test deployment.
+They just added deployment to the task requirements.
+I would have seperated time to test deployment if this was made known earlier.
 
 As this is new, I just tested deployment and found out everything works on localhost:3000/VScode but the deployed site has an issue: 
 ```
